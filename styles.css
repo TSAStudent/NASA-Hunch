@@ -356,7 +356,7 @@ body {
 
 .problem-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -485,7 +485,7 @@ body {
 
 .component-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -539,7 +539,7 @@ body {
 
 .tech-stack {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -581,7 +581,7 @@ body {
 
 .constraints-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -640,7 +640,7 @@ body {
 
 .setup-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -713,45 +713,133 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.example-interactions {
+/* AI Interaction Showcase */
+.ai-showcase {
     margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(100, 255, 218, 0.2);
 }
 
-.example-interactions h3 {
+.ai-showcase h3 {
     color: var(--accent-blue);
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.75rem;
     text-align: center;
 }
 
-.chat-examples {
+.ai-showcase-intro {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 2rem;
+    color: var(--text-light);
+    line-height: 1.75;
+    font-size: 1.05rem;
+}
+
+.showcase-conversations {
     display: grid;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
-.chat-example {
-    background: rgba(10, 25, 47, 0.8);
-    border-radius: 15px;
+.showcase-case {
+    background: rgba(10, 25, 47, 0.85);
+    border-radius: 16px;
     padding: 2rem;
-    border: 1px solid rgba(100, 255, 218, 0.2);
+    border: 1px solid rgba(100, 255, 218, 0.25);
 }
 
-.user-message {
-    background: rgba(100, 255, 218, 0.2);
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    border-left: 4px solid var(--accent-blue);
-    color: var(--text-light);
+.showcase-case-title {
+    color: var(--accent-blue);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
 }
 
-.ai-message {
-    background: rgba(17, 34, 64, 0.6);
-    padding: 1.5rem;
-    border-radius: 10px;
-    color: var(--text-light);
-    line-height: 1.8;
+.conversation-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    max-width: 95%;
+}
+
+.msg-astronaut {
+    align-self: flex-start;
+}
+
+.msg-astronaut .msg-role {
+    color: #8892b0;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.msg-astronaut .msg-text {
+    background: rgba(100, 255, 218, 0.15);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
     border-left: 4px solid var(--accent-blue);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.msg-surgeon {
+    align-self: flex-end;
+}
+
+.msg-surgeon .msg-role {
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: right;
+}
+
+.msg-surgeon .msg-text {
+    background: rgba(17, 34, 64, 0.9);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border-right: 4px solid var(--accent-blue);
+    color: var(--text-light);
+    line-height: 1.6;
+    text-align: right;
+}
+
+.diagnosis-block {
+    background: rgba(17, 34, 64, 0.7);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25rem 1.5rem;
+    align-items: baseline;
+}
+
+.diagnosis-label,
+.treatment-label {
+    color: #8892b0;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.diagnosis-value,
+.treatment-value {
+    color: var(--accent-blue);
+    font-weight: 500;
+}
+
+.treatment-label {
+    grid-column: 1;
+}
+
+.treatment-value {
+    grid-column: 2;
 }
 
 .diagnostic-examples {
@@ -777,7 +865,7 @@ body {
 
 .diagnostic-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
 }
 
@@ -850,7 +938,7 @@ body {
 
 .future-uses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-bottom: 3rem;
 }
@@ -891,7 +979,7 @@ body {
 
 .future-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -1009,8 +1097,11 @@ body {
     
     .problem-content,
     .component-grid,
+    .setup-grid,
     .tech-stack,
     .constraints-grid,
+    .diagnostic-grid,
+    .future-uses-grid,
     .future-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1113,8 +1204,11 @@ body {
     
     .problem-content,
     .component-grid,
+    .setup-grid,
     .tech-stack,
     .constraints-grid,
+    .diagnostic-grid,
+    .future-uses-grid,
     .future-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -1153,7 +1247,7 @@ body {
         padding: 1.5rem;
     }
     
-    .chat-example {
+    .showcase-case {
         padding: 1.5rem;
     }
     
@@ -1287,13 +1381,12 @@ body {
         font-size: 0.9rem;
     }
     
-    .chat-example {
+    .showcase-case {
         padding: 1rem;
     }
     
-    .user-message,
-    .ai-message {
-        padding: 1rem;
+    .msg .msg-text {
+        padding: 0.75rem 1rem;
         font-size: 0.9rem;
     }
     

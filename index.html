@@ -213,6 +213,10 @@
                         <h3>Behind the Scenes</h3>
                         <p>The AI knows exact doses (e.g., 10 mg Loratadine for allergies, 20 mg Midodrine for dizziness). It is programmed to tell the astronaut to report immediately if symptoms worsen or new neurological or cardiopulmonary symptoms occur. All output is structured (e.g., JSON) for clear display and logging.</p>
                     </div>
+                    <div class="setup-card">
+                        <h3>Structured Output & Escalation</h3>
+                        <p>Diagnoses and treatment plans are output in a structured format (e.g., JSON) for logging and display. The system clearly states when to report immediately—e.g., worsening symptoms, unstable vitals, or new neurological or cardiopulmonary symptoms—and requires daily check-ins when needed.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -278,6 +282,11 @@
                     <h3>Noisy Environments</h3>
                     <p>Distracting or noisy user environments require robust voice recognition and filtering.</p>
                 </div>
+                <div class="constraint-card">
+                    <div class="constraint-icon">⏱️</div>
+                    <h3>Response Time</h3>
+                    <p>Medical guidance must be delivered with minimal latency to support time-sensitive decisions in space.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -334,19 +343,70 @@
                     </div>
                 </div>
 
-                <div class="example-interactions">
-                    <h3>Example Interactions</h3>
-                    <div class="chat-examples">
-                        <div class="chat-example">
-                            <div class="user-message">I have a stomachache pls help.</div>
-                            <div class="ai-message">
-                                Session active. Follow flight surgeon guidance when available. Okay, I'm adding a stomachache to the patient's symptoms. I'm accessing rules-core for gastrointestinal distress protocols. /step gastrointestinal_assessment_v1 - requesting initial assessment. Please monitor SpO2 and SBP. Recheck in five minutes.
+                <div class="ai-showcase">
+                    <h3>AI Interaction Showcase</h3>
+                    <p class="ai-showcase-intro">How the AI responds to crew symptoms: it asks targeted questions, then delivers a diagnosis and structured treatment plan. Mission profile (e.g., Day 100) is used to tailor recommendations.</p>
+                    <div class="showcase-conversations">
+                        <div class="showcase-case">
+                            <h4 class="showcase-case-title">Case 1: Headache → Migraine</h4>
+                            <div class="conversation-thread">
+                                <div class="msg msg-astronaut">
+                                    <span class="msg-role">Astronaut</span>
+                                    <span class="msg-text">I have a headache</span>
+                                </div>
+                                <div class="msg msg-surgeon">
+                                    <span class="msg-role">Flight Surgeon</span>
+                                    <span class="msg-text">When did the symptoms start, and are there any associated symptoms such as fever, chest pain, or neurological changes?</span>
+                                </div>
+                                <div class="msg msg-astronaut">
+                                    <span class="msg-role">Astronaut</span>
+                                    <span class="msg-text">Yesterday</span>
+                                </div>
+                                <div class="msg msg-surgeon">
+                                    <span class="msg-role">Flight Surgeon</span>
+                                    <span class="msg-text">Based on your symptoms and mission profile (Day 100), this is most consistent with Migraine. I recommend starting Sumatriptan at 50 mg orally at onset, may repeat once after 2 hours. Continue hydration and monitor symptoms closely.</span>
+                                </div>
+                                <div class="msg msg-astronaut">
+                                    <span class="msg-role">Astronaut</span>
+                                    <span class="msg-text">Okay, what should I monitor for that would require reevaluation?</span>
+                                </div>
+                                <div class="msg msg-surgeon">
+                                    <span class="msg-role">Flight Surgeon</span>
+                                    <span class="msg-text">Report immediately if symptoms worsen, vital signs become unstable, severe pain develops, or new neurological or cardiopulmonary symptoms occur. Daily check-ins required.</span>
+                                </div>
+                            </div>
+                            <div class="diagnosis-block">
+                                <div class="diagnosis-label">Final Diagnosis</div>
+                                <div class="diagnosis-value">Migraine</div>
+                                <div class="treatment-label">Treatment</div>
+                                <div class="treatment-value">Sumatriptan 50 mg orally at onset, may repeat once after 2 hours</div>
                             </div>
                         </div>
-                        <div class="chat-example">
-                            <div class="user-message">I have a headache. Please help me out.</div>
-                            <div class="ai-message">
-                                Session active. Follow flight surgeon guidance when available. Okay, I'm adding a headache to the patient's symptoms. I'm accessing rules-core for headache protocols. /step headache_assessment_v1 - requesting initial assessment. Please monitor SpO2 and SBP. Recheck in five minutes.
+                        <div class="showcase-case">
+                            <h4 class="showcase-case-title">Case 2: Stomach aches → Gastroenteritis</h4>
+                            <div class="conversation-thread">
+                                <div class="msg msg-astronaut">
+                                    <span class="msg-role">Astronaut</span>
+                                    <span class="msg-text">I have stomach aches</span>
+                                </div>
+                                <div class="msg msg-surgeon">
+                                    <span class="msg-role">Flight Surgeon</span>
+                                    <span class="msg-text">When did the stomach aches start, and are there any associated symptoms such as fever, chest pain, or neurological changes?</span>
+                                </div>
+                                <div class="msg msg-astronaut">
+                                    <span class="msg-role">Astronaut</span>
+                                    <span class="msg-text">It started today</span>
+                                </div>
+                                <div class="msg msg-surgeon">
+                                    <span class="msg-role">Flight Surgeon</span>
+                                    <span class="msg-text">Based on your symptoms and mission profile (Day 100), this is most consistent with Gastroenteritis. I recommend starting Loperamide at 4 mg initially, then 2 mg after loose stool (max 8 mg/day). Continue hydration and monitor symptoms closely.</span>
+                                </div>
+                            </div>
+                            <div class="diagnosis-block">
+                                <div class="diagnosis-label">Final Diagnosis</div>
+                                <div class="diagnosis-value">Gastroenteritis</div>
+                                <div class="treatment-label">Treatment</div>
+                                <div class="treatment-value">Loperamide 4 mg initially, then 2 mg after loose stool (max 8 mg/day)</div>
                             </div>
                         </div>
                     </div>
@@ -371,6 +431,14 @@
                         <div class="diagnostic-card">
                             <h4>Sneezing, nasal congestion, itchy eyes → Allergic Rhinitis</h4>
                             <p><strong>Treatment:</strong> Loratadine 10 mg orally once daily. Continue hydration and monitor symptoms closely.</p>
+                        </div>
+                        <div class="diagnostic-card">
+                            <h4>Fever / possible infection → Monitor & Escalate</h4>
+                            <p><strong>Treatment:</strong> System assesses severity and associated symptoms; recommends hydration, monitoring, and immediate reporting if high fever, rigors, or spreading rash develop.</p>
+                        </div>
+                        <div class="diagnostic-card">
+                            <h4>Chest pain / cardiac concerns → Immediate protocol</h4>
+                            <p><strong>Treatment:</strong> AI flags for immediate reporting and follows cardiac protocol; no at-home medication—escalate to flight surgeon and vital sign monitoring.</p>
                         </div>
                     </div>
                 </div>
@@ -441,6 +509,16 @@
                             <div class="future-icon">⚖️</div>
                             <h3>Policy Compliance</h3>
                             <p>Address challenges related to district policies and Texas laws</p>
+                        </div>
+                        <div class="future-card">
+                            <div class="future-icon">🧪</div>
+                            <h3>Testing & Validation</h3>
+                            <p>Rigorous testing with medical vignettes and validation against flight surgeon protocols</p>
+                        </div>
+                        <div class="future-card">
+                            <div class="future-icon">📋</div>
+                            <h3>Documentation & Training</h3>
+                            <p>Documentation for operators and training materials for crew and ground support</p>
                         </div>
                     </div>
                 </div>

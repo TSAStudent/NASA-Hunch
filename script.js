@@ -78,7 +78,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('.section, .problem-card, .feature, .component-card, .tech-card, .constraint-card, .future-card, .setup-card, .diagnostic-card, .future-use-card').forEach(el => {
+document.querySelectorAll('.section, .problem-card, .feature, .component-card, .tech-card, .constraint-card, .future-card, .setup-card, .diagnostic-card, .future-use-card, .showcase-case').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
